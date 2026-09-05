@@ -1,4 +1,4 @@
-# fish-like-readline-experiance-for-tclsh
+# fish-like-readline-experience-for-tclsh
 
 
 you get "fish complete" completions in the command "e" which calls "exec" e.g.:  
