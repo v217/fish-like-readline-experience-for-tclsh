@@ -1,0 +1,1 @@
+# fish-like-readline-experiance-for-tclsh
