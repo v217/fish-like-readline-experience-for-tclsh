@@ -8,3 +8,8 @@ checkout     cherry       cherry-pick
 
 
 
+you have to install:  
+
+rpm install tcl tcl-tclreadline
+
+or the equivalent packages
