@@ -13,3 +13,6 @@ you have to install:
 rpm install tcl tcl-tclreadline
 
 or the equivalent packages
+
+
+This works on tcl 9
