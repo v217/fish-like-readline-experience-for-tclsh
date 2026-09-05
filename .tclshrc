@@ -1,0 +1,45 @@
+# ~/.tclshrc
+if {$tcl_interactive} {
+    package require tclreadline
+
+    proc e args {
+        exec {*}$args
+    }
+
+
+
+
+proc ::tclreadline::complete(e) {text start end line pos mod} {
+    set fishLine [string range $line 2 [expr {$end - 1}]]
+
+    if {[catch {
+        exec fish -c {complete -C "$argv[1]"} -- $fishLine
+    } output]} {
+        return [list $text]
+    }
+
+    set candidates {}
+
+    foreach record [split $output "\n"] {
+        if {$record eq ""} {
+            continue
+        }
+
+        set candidate [lindex [split $record "\t"] 0]
+
+        if {$candidate ne ""} {
+            lappend candidates $candidate
+        }
+    }
+
+    if {[llength $candidates] == 0} {
+        return [list $text]
+    }
+
+    return [linsert $candidates 0 $text]
+}
+
+
+
+    ::tclreadline::Loop
+}
